@@ -1,0 +1,16 @@
+Initial commands after creating a repository:
+git init
+ls -a [lists all hidden .git file]
+git status [To keep track of all the files]
+git add .[To use all the files or replace . with the specific filename ]
+git commit -m "first commit" [To commit a message]
+git branch -M main [branch selection]
+git remote add origin https://github.com/ab5969/FullStack.git
+git push -u origin main
+
+After modification :
+git status 
+git add . [or name of the specific file where modification was done]
+git commit -m "Modified CSS"
+git pull origin main
+git push

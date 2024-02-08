@@ -1,0 +1,95 @@
+<!-- classes:
+An attribute of a tag , we use it so as to provide CSS to the the tag using it [Using class attribute saves time as you don’t need to style each and every element separately.]
+Multiple classes can have same class
+To access a class in CSS (.Class Name) is used
+
+Internal CSS is always written inside style Tags and placed inside the head tag of the Html document. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .title {
+            background-color: lightgreen;
+            color: #141414;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="title">Dot Net Tutorials</h1>
+    <span class="title">Dot Net Tutorials</span>
+    <br> <br> <br>
+</body>
+
+
+</html>
+
+
+<!-- IDs  -->
+<!-- same purpose as class but unlike class it is unique -->
+<!-- To access a class in CSS (#Class Name) is used -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            color: black;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 25px;
+            width: 120px;
+        }
+
+        #card1 {
+            background-color: violet;
+        }
+
+        #card2 {
+            background-color: lightblue;
+        }
+
+        #card3 {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" id="card1">
+        <h2>CARD1</h2>
+        <p>This is CARD 1</p>
+    </div>
+    <div class="card" id="card2">
+        <h2>CARD2</h2>
+        <p>This is CARD 2</p>
+    </div>
+    <div class="card" id="card3">
+        <h2>CARD3</h2>
+        <p>This is CARD 3</p>
+    </div>
+</body>
+<br>
+<br> <br>
+
+</html>
+<!-- Add a bookmark with ID
+HTML bookmarks are used to allow readers to quickly navigate to specific sections of a website. If your page is very long, bookmarks can be very useful. To use a bookmark, first, make one and then add a link to it. When the link is clicked, the page will scroll to the bookmark location -->
+Creating Bookmark
+<h1 id ="title"> Heading </h1>
+
+Adding link to bookmark </br>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae impedit eveniet sit amet libero ratione ad exercitationem quas minus dolorem. Odit facere ipsam quos quis, officiis architecto. Rerum qui quidem quam odit, nemo temporibus nam sint ad quod recusandae esse officia a vero beatae iure? Porro eius nemo ut, assumenda, repellat esse maxime molestias eum dignissimos, adipisci iure? Quisquam minima consequuntur tenetur, repellendus animi sequi facere eaque magni voluptatum officiis delectus vel recusandae, aut earum suscipit dignissimos necessitatibus vitae. Ut, officia tempore dolores culpa inventore accusantium consequuntur suscipit error illo corporis deserunt esse ea tenetur molestias, animi, dolor eaque reprehenderit voluptates facere at saepe sapiente. Dicta ea voluptatem omnis corrupti est sit repellat excepturi dolore quidem eligendi? Omnis assumenda, dolor hic expedita blanditiis non accusantium iure voluptatem doloribus eum dolorum rem, labore, nobis libero? Quia, possimus! Eum, reiciendis nam maxime praesentium dolore dolorum ducimus dignissimos sit facilis minus suscipit provident officia, repellat quisquam debitis et odit neque, magnam ipsum mollitia nobis illum exercitationem numquam vel. Minima cupiditate enim reprehenderit nobis in quas fugiat non natus! Nesciunt maxime, nisi reiciendis aut, qui porro, rem tempora neque a labore reprehenderit? Vitae culpa laborum eligendi cum sequi blanditiis libero temporibus consequuntur molestiae sapiente?</p>
+<a href="#title"> Jump to Title </a>
+

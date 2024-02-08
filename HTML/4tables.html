@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        background-color: rgb(208, 230, 173);
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <!-- use of colspan and rowspan -->
+
+    <table border="">
+        <caption>Student Details</caption>
+        <tr>
+            <th>Sr.NO</th>
+            <th colspan="2">Full Name</th>
+            <th>Batch</th>
+            <th>CG</th>
+            <th>Blank</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Abhinav</td>
+            <td>Singh</td>
+            <td>2025</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Anuj</td>
+            <td>Maurya</td>
+            <td>2025</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Aman</td>
+            <td>kumar</td>
+            <td>2025</td>
+            <td>9</td>
+        </tr>
+
+    </table>
+    <p>Rowspan attribute</p>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <td>Obama Lincoln</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Phone</th>
+            <td>9588444545</td>
+        </tr>
+        <tr>
+            <td>9744458266</td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+<!-- Pressing Alt helps us directly jump to another line without using keyboard -->
+<!-- using ctrl and / we can comment out anything -->
+<!-- Using Lorem30 will generate 30random words -->
+<!-- using p*4 will generate four p tags -->
+<!-- using toggle word wrap from command pallette will helps us remove horizontal lines caused due to lorem tags -->
+<!-- using alt+arrow up text can be moved up and down together -->
+<!-- we don't need to select the text in order to use ctr+x -->

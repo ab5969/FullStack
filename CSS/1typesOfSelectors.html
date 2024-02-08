@@ -1,0 +1,123 @@
+<!-- Inline: Apply CSS rules for specific elements.
+<body>
+    <p style="color: #ff9900">This text has been styled using inline style sheets.</p>
+</body> -->
+<!-- Internal: Add <style> tag in the <head> section of HTML document -->
+<!-- External: Link the HTML sheet to a separate .css file 
+ To use an external style sheet, add a link to it in the <head> section of each HTML page. In this approach, you create a new file with the extension .css because you are going to store the CSS rules in this file without any style tag.  -->
+<!-- <link rel="stylesheet" href="filename.css"> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    /* Universal Selector : covers entire page*/
+    *{
+        background-color: #4d4d4d;
+        color: aliceblue; 
+    }
+    /* individual selector : specific tags*/
+    p{
+        color: red;
+    }
+    /* class and id selector */
+    .sibling{
+       color: aqua;
+    }
+    #test3{
+        color: blue;
+    }
+    /* and selector (chained) */
+    li.bg-black.text-white{
+        color: brown;
+    }
+    /* combined selector */
+    span,li {
+        color: yellow;
+    }
+    /* inside an element  : all the li's inside div->ul*/
+     div ul li{
+        color: magenta;
+     }
+     /* direct child : the direct childs inside the div tags will have background color as firebrick*/
+     div>li{
+        background-color: firebrick;
+     }
+     /* sibling ~ or +  */  
+     .sibling + p{
+        color: blueviolet;
+     }
+
+     /* pseudoselectors: content and display is necessary */
+     /* before  */
+     /* https://developer.mozilla.org/en-US/docs/Web/CSS/::before */
+    .implabel::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    }
+
+    .implabel2:hover::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(215, 250, 217);
+    }
+
+     /* after  */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/::after */
+    
+    
+
+
+</style> 
+</head>
+<body>
+   <div>Welcome to CSS Learning Day0</div> 
+   <span>Let's learn span</span>
+   <p>it stands for paragraph</p>
+   <ul>
+    <li class="bg-black text-white">Item1</li>
+    <li>item2</li>
+    <li>item3</li>
+    <li>item4</li>
+    <li>item5</li>
+   </ul>
+
+   <div>
+    <li>awesome</li>
+    <ul>
+        <li>higlight me</li>
+        <li>highlight me</li>
+    </ul>
+   </div>
+
+   <section>
+    <p>test1</p>
+    <p class="sibling">test2</p>
+    <p id="test3">test3</p>
+    <p>test4</p>
+    <p>test5</p>
+   </section>
+
+   <form action="">
+    <label class="implabel" for="name">Name</label>
+     <input type="text" name="" id="name">
+
+     <label class="implabel2" for="email">Email</label>
+     <input type="email">
+
+     <button>Submit</button>
+   </form>
+
+
+
+</body>
+</html> 

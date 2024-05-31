@@ -1,0 +1,168 @@
+   1) WINDOW: 
+      * It is a global object created by browser and represents a browser window 
+      * It's a top level entity which consists of DOM, BOM , JS core [this includes objects,arrays,functions]
+      * It controls the functionality of the window . 
+
+    2) DOM: Document Object Model :-
+       Entire html code is converted into JS object and this is called as document 
+       character->tags->token-> collection of nodes forms->DOM
+
+    3) BOM: Browser Object Model:-
+
+..................................................................................................................... 
+    Methods to integrate JS with HTML code:
+    Ways to access elements:
+    (i) getElementByID(): document.getElementByID('ID'); 
+                          *returns an element object whose id property matches the specified string
+                          *It is called on document object and returns a single object since the ID is unique
+
+    (ii) getElementsByClassName(): document.getElementsByClassName('classname')
+    (iii)getElementsByTagName(): document.getElementsByTagName('tagname') tagnames contain all HTML tagnames
+    NOTE: (ii) & (iii) are document object , return multiple items , and the list returned by them is not an array
+
+    ** USE OF $0: 
+      after selecting the text through inspect we can go to console window and there if we type $0 we will get the 
+      HTML code of the selected text .
+      we can assign it to a variable as let var1 = $0; 
+                                        var1; // will again give the HTML code of the selected text
+
+   ** USE OF Query selector:
+      It returns only single elements . It uses . for accessing class elements and #for accessing ID elements
+      eg: document.querySelector('.className');
+          document.querySelector('#IdName');
+
+   ** USE OF Query selector all:
+     It returns multiple elements . eg: document.querySelectorAll('.className');
+                                       document.querySelectorAll('#IdName');
+
+..................................................................................................................... 
+Updating Existing Content:
+ (i).innerHTML : It get/set HTML content 
+               eg: I selected some text through inspect then in console window I ran this query: 
+                   let doc2 = document.querySelector('#usage_notes');// this stores all the html code having id=usage_notes in doc2
+                   doc2; // <h2 id = "usage_notes">
+                              <a href ="#usage_notes">Usage notes</a> [returns the HTML code having id usage_notes.]
+                           </h2>                                     
+    doc2.innerHTML; //'<a href="#usage_notes">Usage notes</a>'  [returns all the HTML content inside the id usage_notes]
+   
+    doc2.innerHTML=' '; //emptying the innerHTML
+    doc2;//<h2 id = "usage_notes"></h2>    && the innner html ie{ <a href ="#usage_notes">Usage notes</a>} is empty now
+
+(ii).outerHTML: rarely used 
+(iii).textContent : It get/set textual content and also prints the hidden elements . 
+     Difference btween innnerHTML and textcontent :-
+     suppose we have the HTML code as : 
+     <p class='className'>
+        <b> ABHINAV </b> // inner HTML 
+      </p>
+
+   In case of innerHTML ABHINAV will be bold but in case of textcontent entire <b> ABHINAV </b> will be treated as text 
+   
+(iv).innertext : It also get /set textual content but it doesnt prints the hiddden elements. 
+    Difference btween textcontent  and innertext:-
+     suppose we have the HTML code as : 
+     <p class='className'>
+        <b> ABHINAV </b> // inner HTML 
+        <display:hidden> <h3> ABCDEF </h3>   </display:hidden>
+      </p>
+      In case of .textcontent it will print  
+      <b> ABHINAV </b> // inner HTML 
+        <display:hidden> <h3> ABCDEF </h3>   </display:hidden>
+         & in case of .innertext it will print:
+          <b> ABHINAV </b> // inner HTML 
+.....................................................................................................................  
+
+Adding new Content /element in HTML using JS :
+(i) .createElement(): We can create an element using .createElement() and for adding we can use .appendchild() which adds the element in the last
+                     eg: let newchild=document.createElement('span');
+                          content.appendchild(newchild);
+
+                     eg2: let content = document.querySelector('.code-example');
+                          content;// prints <div class = 'code-example'> 
+                                              <p> </p>
+                                              <p> </p>
+                                             </div>
+                          let newcontent = document.createElement('a'); //to add a tag in last
+                          content.append(newcontent);
+                          content;// prints <div class = 'code-example'> 
+                                              <p> </p>
+                                              <p> </p>
+                                              <a> </a> 
+                                             </div>
+.....................................................................................................................  
+Adding text to the element: ie for eg : adding content inside p tag :
+Method1: USing creaTextNode : 
+         let content = document.querySelector('.code-example');
+                          content;// prints <div class = 'code-example'> 
+                                              <p> </p>
+                                              <p> </p>
+                                             </div>
+                          let newcontent = document.createElement('a'); //to add a tag in last
+                          let newText= document.createtextNode(" www.google.com" );
+                          newcontent.appendchild(newText);
+                          content.append(newcontent);
+                          content;// prints <div class = 'code-example'> 
+                                              <p> </p>
+                                              <p> </p>
+                                              <a>www.google.com </a> 
+                                             </div>
+         
+Method2: Easier method:
+      let content = document.querySelector('.code-example');
+                          content;// prints <div class = 'code-example'> 
+                                              <p> </p>
+                                              <p> </p>
+                                             </div>
+                          let newcontent = document.createElement('a'); //to add a tag in last
+                          newcontent.textcontent='www.google.com';
+                          content.append(newcontent);
+                          content;// prints <div class = 'code-example'> 
+                                              <p> </p>
+                                              <p> </p>
+                                              <a> www.google.com </a> 
+                                             </div>
+.....................................................................................................................  
+**Positionong newly added elements accoding to our choice as till now it was getting added in the last:
+(i)insertAdjacentHTML(): *It has to be called using two arguments
+                         *we need to give location/POSITION OF THE ELEMENT WHICH IS TO BE insertAdjacentHTML
+                         *text/content which is to be inserted inside the element needs to be provided
+Location/position can be given by:
+  --beforebegin: INsert HTML text as previous sibling
+  --afterbegin : INsert HTML text as first child
+  --beforeend : INsert HTML text as last child
+  --afterend   : INsert HTML text as  sibling                         -beforebegin
+   for eg:                                                       <div class = 'code-example'>
+                                                                       -afterbegin 
+                                                                         <p> </p> 
+                                                                         <p> </p>
+                                                                         <a>www.google.com </a> 
+                                                                         -beforeend
+                                                                        </div>
+                                                                        afterend  
+     eg2:
+     let content = document.querySelector('.code-example');
+                          content;// prints <div class = 'code-example'> 
+                                              <p> </p>
+                                              <p> </p>
+                                             </div>
+                          let newcontent = document.createElement('p'); //to add a tag in last
+                          newcontent.textcontent='hello OP';
+                          content.insertAdjacentHTML('beforebegin',newcontent)
+
+                          content;//  <p> hello OP </p>
+                                       <div class = 'code-example'> 
+                                              <p> </p>
+                                              <p> </p>
+                                              <a> www.google.com </a> 
+                                             </div>    
+.....................................................................................................................  
+
+** Removing  elements from HTML using JS:
+   .removeChild(): conditions we must have before using this method .removeChild()
+                     * opposite of appendchild 
+                     * need to have parent element and the child element
+      Syntax is : parent.removeChild(childElement);
+       
+
+
+    

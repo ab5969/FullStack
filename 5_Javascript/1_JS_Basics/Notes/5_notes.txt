@@ -1,0 +1,244 @@
+                 FUNCTIONS:
+
+1) SYNTAX:  Function declaration:
+    function function_name(input parameters){
+        //body
+    };
+
+    //function call or invoke 
+    function_name();
+
+    eg: function run(){
+        console.log("running");
+    };
+        run(); //running
+
+    **Hoisting : This is the process of moving function declaration at the top of file eg:
+                run(); //running ...& this works because of hoisting as JS engine moves all the function declaration at the top while exceuting
+
+                 function run(){
+                    console.log("running");
+                 };
+
+    Function Assignment: In this we assign function to a variable 
+        eg: let stand= function run(){
+                    console.log("running");
+                 };
+            stand(); //running
+            run(); // throws error 
+            here hoisting will not work as hoisting only works for function declaration  as when we excecute 
+            stand() above the function assignment it will throw error
+
+
+    Function assignment is of two types : 
+    (i) Named  Function assignment : In this we write function name 
+                                     eg: let stand= function run(){
+                                            console.log("running");
+                                         };
+    (ii)Anonymous Function Assignment: In this we dont write function name
+                                      eg: let stand= function(){
+                                            console.log("running");
+                                         };
+..................................................................................................................... 
+JS IS DYNAMIC :
+  let a=5;
+  a='x';
+  console.log(a); // x
+
+  similarly for functions:
+  function sum(a,b){
+    return a+b;
+  }
+
+  console.log(sum(1,2));//3
+  console.log(sum(1));//NaN (NOt a number) as b is not defined therefore 1+undefined results in NaN
+  console.log(sum());//NaN
+
+  console.log(sum(1,2,3,4,5));//3  ..
+  here 3,4,5 will be wasted but we can utilise it using arguments and the arguments here are objects for eg: 
+  function sum(a,b){
+    console.log(arguments);
+    return a+b;
+  }
+
+   sum(1,2);//Arguments(2) [1, 2, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+   sum(1,2,3,4,5,6);//Arguments(6) [1, 2, 3, 4, 5, 6, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+                    // to add all the stored values in arguments:
+                    function sum(a,b){
+                       let total=0;
+                       for(let value of arguments){
+                        total=total+value;
+                       }
+
+                      return total;
+                      }
+
+                    console.log(sum(1,2,3,4,5,6));//21 [ ie 1+2+3+4+5+6]
+
+....................................................................................................................
+**REST OPERATOR [...]: we can store varying parameters in the form of array of arguments using rest OPERATOR.
+                         function sum(...args){
+                          console.log(args);
+                          return a+b;
+                        }
+
+                        sum(1,2,3,4,5,6,7);// [1, 2, 3, 4, 5, 6, 7] stores numbers in the form of arrays here 
+                        
+                        function sum(var1,var2,...args){
+                          console.log(args);
+                          return a+b;
+                        }
+
+                        sum(1,2,3,4,5,6,7);// [ 3, 4, 5, 6, 7] stores 1,2 var1 and var2 and rest in arrays here
+                                               and anything after args will be incorrect to use as arguments are 
+                                               the last parameters
+....................................................................................................................
+**DEFAULT parameters: we can set a default parameters using var=value in parameters & if we set second argument as default then we need to set all the arguments on right as default
+                    function interest(p,r=8,t=2){
+                        console.log(p*r*t/100);
+                    } 
+                    interest(1000);     //160
+ ..................................................................................................................                   
+**GETTER & SETTER FUNCTIONS:
+let person ={
+        fname:"Abhinav",
+        lname:"Singh"
+    };
+//one way to access fname and lname
+    console.log(`${person.fname} ${person.lname}`); //Abhinav Singh
+    //we cant evrytime write the same thing to access the fname and lname instead we can create a function as:
+    function fullname(){
+        return `${person.fname} ${person.lname}`;
+    } ;
+    
+    let obj = fullname();
+    console.log(obj);// Abhinav Singh
+
+    // now we can write the above function using getter inside the person block 
+    //but these functions only us to access the data and let us modify it , so we can modify it using setter functions
+
+       let person ={
+        fname:"Abhinav",
+        lname:"Singh",
+
+        get fullname(){
+            return `${person.fname} ${person.lname}`;
+        } ,
+
+        set fullname(value){
+            let parts=value.split(' ');
+            this.fname=parts[0];
+            this.lname=parts[1];
+        }
+
+
+    };
+
+    person.fullname='MrX Lewis';
+    console.log(person.fullname); //MrX Lewis
+....................................................................................................................
+  **ERROR HANDLING:
+  TRY & CATCH BLOCK:
+  We write the code which could have error in it in try block 
+  & then we throw the error in catch block 
+ Syntax: 
+   try{
+    ...code block which could have error
+   }
+   catch{
+    throw ..error message
+   }
+
+   eg1: 
+   try{
+    person.fullname=1; // this line is having error which will then be handled by catch block
+   }
+   catch(e){
+    alert"You have sent a number here");
+   }
+
+   eg2: 
+
+   let person ={
+        fname:"Abhinav",
+        lname:"Singh",
+
+        get fullname(){
+            return `${person.fname} ${person.lname}`;
+        } ,
+
+        set fullname(value){
+          if(value!=string){
+            throw new Error("You have not sent a string");
+          }
+            let parts=value.split(' ');
+            this.fname=parts[0];
+            this.lname=parts[1];
+        }
+
+
+    };
+    try{
+    person.fullname=true;
+    }
+    catch(e){
+      alert(e);//You have not sent a string
+    }
+
+    codeflow: line 182 executes first -> line170 is called where value is assigned true ..171executes and then 172 and a new object is created with a error messge -> this error will be handled by catch block at 184 and e = error message and that is given to alert
+....................................................................................................................
+  **Scope resolution:
+
+  LET: 
+  * the variable created using let is only defined within the nearest blocks { };
+   this will be valid for if-else , for loops 
+    eg:  {
+      let a=5;
+    }
+    console.log(a);//will throw error as a is only defined within { } and not outside
+
+  VAR:
+  * the variable created using var is only defined within the function blocks { } otherwise if there is no function blocks then the variable is defined for the entire file.
+   this will be valid for if-else ,for loops 
+  eg1: 
+   {
+      var a=5;
+    }
+    console.log(a); // 5 since there are no functions enclosing a
+
+  eg2: 
+  function ab(){
+    var a=5;
+  }
+  console.log(a); // will throw error 
+
+  CONST:
+    function ab(){
+    const a=5;
+  }
+  const a=5;
+     function abc(){
+    const a=5;
+  }
+
+
+
+
+
+
+    
+
+
+
+
+   
+                                      
+                      
+                       
+
+          
+
+  
+    
+   
+        

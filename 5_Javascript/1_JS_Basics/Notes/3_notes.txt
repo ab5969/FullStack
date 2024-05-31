@@ -1,0 +1,85 @@
+IN-BUILT-IN OBJECTS:
+1) Math: 
+   The Math namespace object contains static properties and methods for mathematical constants and functions.
+   Math works with the Number type. It doesn't work with BigInt.
+   Unlike most global objects, Math is not a constructor. You cannot use it with the new operator or invoke the 
+   Math object as a function. All properties and methods of Math are static
+   Some static properties are: 
+   Math.E
+   Euler's number and the base of natural logarithms; approximately 2.718.
+
+   Math.LN10
+   Natural logarithm of 10; approximately 2.303.
+
+   Math.LN2
+   Natural logarithm of 2; approximately 0.693
+
+   Some static methods are: 
+   Math.max()
+    Returns the largest of zero or more numbers.
+
+    Math.min()
+    Returns the smallest of zero or more numbers.
+
+    Math.pow()
+    Returns base x to the exponent power y (that is, xy).
+
+    Math.random()
+    Returns a pseudo-random number between 0 and 1
+.....................................................................................................................
+2) Strings: we have two types of string : one as a primitive type and other as an object 
+            * Strings can be created as primitives, from string literals, or as objects, using the String() 
+              constructor:
+            eg: let lastName = 'Singh'; // as a string
+                let firstName = new String('Abhinav');
+                typeof lastName;//'string'
+                typeof firstName;//'object' 
+
+                lastName.length //5
+                lastName.toUpperCase();//'SINGH'
+
+                let message='Hello my name is ABHINAV SINGH ';
+                let words = message.split(' ');
+                console.log(words);//(7) ['Hello', 'my', 'name', 'is', 'ABHINAV', 'SINGH', ''] 
+                // or 
+                // 0: "Hello"
+                // 1: "my"
+                // 2: "name"
+
+
+                similarly we have so many other functions such as : trim(), startswith(),endswith().....
+
+.....................................................................................................................
+3) Template Literal : Till  now we have seen object literal as {} & string literal as ' ' 
+                      Now in template literal we use back ticks ` ` beside 1 in the keyboard . 
+                      we use back ticks to print string as it is : for eg: 
+                      *let str1 = 'Hello 
+                      my name is abhinav singh'; this will throw error as they are in not in the same line
+                      MOdified string using \n 
+                     * let str1 = 'Hello \n my name is abhinav singh'; // this is allowed and output will be :
+                       Hello 
+                       my name is abhinav singh
+                     NOw using backticks:
+                     let str1= `Hello 
+                       my
+                       name is abhinav singh`; then output will be as same as the text ie 
+                       //Hello 
+                       my
+                       name is abhinav singh
+
+    ...NOw we we can use ${varname} known as placeholder for dynamic printing only in case of backtick variable:
+                                          eg let name='abhinavsingh';
+                                             let sname = `hello ${name}`;//hello abhinavsingh
+.....................................................................................................................
+4) Date & Time : we can use date function to get current date and time for eg: 
+                 let date = new Date();// Thu May 23 2024 16:19:03 GMT+0530 (India Standard Time)
+                  let date = new Date(); 
+                  console.log(date);//Thu May 23 2024 16:23:48 GMT+0530 (India Standard Time)
+                  date.setTime(2020);
+                  console.log(date);
+                  for more : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+.....................................................................................................................
+
+                    
+                

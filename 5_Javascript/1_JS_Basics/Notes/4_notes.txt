@@ -1,0 +1,178 @@
+ARRAYS:unlike c/c++ , we can have different datatype in the JS array
+creating array: let numbers=[1,2,3,4,5];
+
+1)INSERTION:
+(i) In starting: numbers.unshift(10);//10,1,2,3,4,5
+(ii)In ending  : numbers.push(9);//10,1,2,3,4,5,9
+(iii)In middle:  numbers.splice(index,count of elements to be deleted, elements to be inserted);
+                 numbers.splice(1,0,'a','b');//10,1,2,'a','b',3,4,5,9 
+                 numbers.splice(1,1,'a','b');//10,1,2,'a','b',4,5,9 [3 will be delted]  
+                 numbers.splice(1,2,'a','b');//10,1,2,'a','b',5,9 [3,4 will be delted]
+..................................................................................................................... 
+2)SEARCHING:
+** ON PRIMITIVES:-USing indexOF and includes
+  let numbers=[1,2,3,4,5];
+(i)Method1: we wish to find the index of 3 and if the element doent exixt then it returns -1
+            console.log(numbers.indexOf(3));//2
+             console.log(numbers.indexOf(6));//-1
+             //we want to check if the number exist in an array:
+             if(numbers.indexof(4)!=-1)console.log('present');
+             console.log(numbers.indexOf(4,2)); starting from 2nd index if the element 4 is present in the array
+(ii)Method2: Using include method: 
+             console.log(numbers.includes(3));//true 
+
+** ON Objects/References: USing callback function [.find]
+         eg:  let names=[ {sno:1,name:'Abhinav'},{sno:2,name:'Singh'} ];      //names is an array of objects
+      
+        let x= names.find(function(eachname){  return eachname.name=="Abhinav";})   
+        //considering an individual array name as eachname
+        let x= names.find(eachname => return eachname.name=="Abhinav";)  
+       
+      console.log(x); // {sno: 1, name: 'Abhinav'}
+.....................................................................................................................
+3)REMOVING ELEMENTS FROM ARRAY:
+eg: let numbers = [1,2,3,4,5,6,7];
+    numbers.pop(); //deleting numbers from end
+    console.log(numbers); //1 2 3 4 5 6 
+    numbers.shift(); //deleting numbers from front
+    console.log(numbers);//2 3 4 5 6
+    numbers.splice(2,1); //deleting one element and at 2nd index 
+    console.log(numbers); //2 3 5 6
+.....................................................................................................................
+4)EMPTYING AN ARRAY : [ REMOVING ALL ELEMENTS FROM AN ARRAY]
+let numbers = [1,2,3,4,5,6];
+methd 1: numbers =[];
+         console.log(numbers); //[] but this method is not ideal as if we equate numbers=numbers1 and then if we 
+                                    print numbers1 we will get all the numbers stored in the numbers
+                                    eg: let numbers = [1,2,3,4,5,6];
+                                        let numbers1=numbers;
+                                        console.log(numbers);//[]
+                                        console.log(numbers1);//1 2 3 4 5 6
+methd2: let numbers = [1,2,3,4,5,6];
+        let numbers1=numbers;
+        numbers.length=0;
+        console.log(numbers);//[]
+        console.log(numbers1);//[]
+
+methd3: let numbers = [1,2,3,4,5,6];
+        let numbers1=numbers;
+        numbers.splice(0,numbers.length);
+        console.log(numbers);//[]
+        console.log(numbers1);//1 2 3 4 5 6
+
+methd4: while(numbers.length>0){
+        numbers.pop();
+        }
+.....................................................................................................................
+5) COMBINING AND SLICING ARRAYS:
+   let number1= [1,2,3];
+   let number2= [4,5,6];
+   let combined= number1.concat(number2);
+   console.log(combined);// 1 2 3 4 5 6
+   let sliced = combined.slice(2,4); where index 2 is included and 4 is excluded
+   let sliced1 = combined.slice(2); // slices elements starting from 2 till end
+   console.log(sliced); // 3 4
+
+   ** spread operator for concatenation:
+  let number1= [1,2,3];
+   let number2= [4,5,6];
+   let combined= [...number1,...number2];
+   console.log(combined);
+    let combined1= [...number1,'a',...number2, 'b'];
+       console.log(combined1);  // [1, 2, 3, 'a', 4, 5, 6, 'b']
+
+.....................................................................................................................
+6) ITERATING AN ARRAY:
+   1) FOR-OF LOOP: 
+      let arr=[1,2,3,4,5];
+      for(let value of arr){
+        console.log(vale);
+      }
+    2) FOR-EACH LOOP:
+      let arr=[1,2,3,4,5];
+       let arr=[1,2,3,4,5];
+       arr.forEach(function(number){
+        console.log(number);
+       })
+       OR using arrow function
+    arr.forEach(number=>  console.log(number) );
+
+.....................................................................................................................
+
+7) JOINING AND SPLITTING AN ARRAY:
+   let numbers =[1,2,3,4,5];
+   let joined=numbers.join('+');
+   console.log(joined); // 1+2+3+4+5
+
+   let message= 'Hello my name is Abhinav Singh';
+   let splitting  =  message.split(' ');
+   console.log(splitting);
+.....................................................................................................................
+8) SORTING AND REVERSING THE ARRAY:
+.....................................................................................................................
+9) FILTERING AN ARRAY:
+     let arr=[-1,-2,3,4,0];
+    let filtered1=arr.filter(function(value){
+      return value>0;
+    });
+
+    let filtered2=arr.filter(value => value>0);
+
+    console.log(filtered1);// 3 4
+    console.log(filtered2);// 3 4
+.....................................................................................................................
+10) MAPPING ARRAYS: [ mapping each element of array to something else]
+    let arr = [3,4,5,6,7];
+    let items = arr.map(function(value){
+      return 'ABHINAVcnt' + value ;
+    });
+    console.log(items); //  ['ABHINAVcnt3', 'ABHINAVcnt4', 'ABHINAVcnt5', 'ABHINAVcnt6', 'ABHINAVcnt7']
+.....................................................................................................................
+11) MAPPING WITH OBJECTS:
+     // let arr=[2,5,-2,-3];
+    // let filtered= arr.filter(value => value>0);
+    // console.log(filtered);//[2,5]
+    // let items = filtered.map(num => {value:num} ); //we have mapped array elements [] with objects 
+    // //in place of filtered we could copy the let filtered= arr.filter(value => value>0);  value in items and this is 
+    // //   known as chaining and both are equivalent things
+
+    let arr=[2,5,-2,-3];
+    let items = arr.filter(value => value>0).map(num => {value:num} ); 
+      
+   
+    console.log(items)
+
+ .....................................................................................................................
+  12) REDUCING OF ARRAYS:
+// a function to sum the values of array:
+    
+ let arr=[1,2,3,4,5];
+ let total =0;
+ for(let value of arr){
+ total+=value;
+ }
+ console.log(total);// 15
+
+ other way to do the above task is :
+ let total = ( (accumulator,currentvalue)=> accumulator+ currentvalue,0);
+ console.log(total);//10
+ // accumulator = 0 intially and acts as total defined above
+ // currentvalue=1 intially and acts as value defined above
+ // accumulator=accumulator+ currentvalue = 1 in first iteration 
+ // currentvalue=2
+ // accumulator=accumulator+ currentvalue = 1+2=3
+ ...this goes till currentvalue is over ie till 5
+
+ 
+
+
+    
+
+
+
+   
+
+  
+
+                    
+             

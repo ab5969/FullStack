@@ -1,0 +1,143 @@
+**OBJECT :
+1) Object Creation:
+    let rectangle={
+     length:1,
+     breadth:2,
+
+     draw:function(){
+        console.log("this function is used in drawing")
+     }
+};
+2) Accessing Object: rectangle.length//1
+                     rectangle.breadth//2
+                     rectangle.draw()//this function is used in drawing
+................................................................................................................
+**Methods to create objects:
+(i) Factory Function:
+
+    function createRectangle(len,bre){
+    return  rectangle={
+            length:len,
+            breadth:bre,
+
+            draw:function(){
+            console.log("this function is used in drawing")
+            }
+}
+};
+
+let rectangle1=createRectangle(2,3);
+rectangle1.length//2
+rectangle1.breadth//3
+
+(ii) Constructor Function :
+     
+     //use Pascal Notation to define the object ie first letter of every word will be capital
+     function Rectangle(len,bre){
+    this.length=len,
+    this.breadth=bre,
+    this.draw=function(){
+        console.log("this function is used in drawing");
+    }
+}
+    //object creation using constructor
+    let obj1=new Rectangle(2,3);
+
+    obj1.length // 2 
+................................................................................................................
+**Dynamic nanture of Objects
+we can add or delete a property in a object dynamically
+In the above function we have length, breadth and rectangle and now we can another property color to it as: 
+  obj1.color='yellow';
+console.log(obj1);//Rectangle {length: 2, breadth: 3, color: 'yellow', draw: ƒ}
+//deletion
+delete obj1.color; 
+console.log(obj1);// Rectangle {length: 2, breadth: 3, draw: ƒ}
+
+**Functions are Objects in JS 
+................................................................................................................
+**Types in JS:
+  Primitive Types: Numbers , Boolean , String , Undefined , NULL  [they are copied by their values]
+  Reference Types: Functions , Objects , Arrays [they are copied by their address]
+  eg: let a=10;//a=10
+      function inc(a){ //a'=10
+        a++;//a'=11
+      }
+      inc(a);
+      console.log(a); //10 as when there is function call a copy of a is created (a') is created 
+
+eg2: let a={value:10}; a=10
+     function inc(a){ 
+        a.value++;//a=11
+      }
+      inc(a);
+      console.log(a);//11
+................................................................................................................
+** FOr-IN Loop:to access key value pairs in an object:
+  eg: let rectangle={
+      length:1,
+      breadth:2
+  }
+  for(let key in rectangle){
+    console.log(key,rectangle[key]);//length:1 
+                                      breadth:2
+  } 
+ ................................................................................................................    
+** FOR-OF LOOP: generally used over arrays and maps
+  but can be used on objects using object.entries
+  eg: let rectangle={
+      length:1,
+      breadth:2
+  }
+  for(let key of Object.entries(rectangle)){
+    console.log(key,rectangle[key]);//length:1 
+                                      breadth:2
+  } 
+................................................................................................................
+** To find IF a property is present in an object:
+  let rectangle={
+      length:1,
+      breadth:2
+  }
+  if('length' in rectangle)console.log('present');
+  else console.log('absent');
+
+  ................................................................................................................
+
+** Object Cloning:
+(i)Iteration ie using loops: 
+   let src={
+    a:10,
+    b:5
+   };
+   let dest={};
+   for(key in src){
+    dest[key]=src[key];
+   }
+       console.log(dest);//a: 10, b: 5}
+
+(ii)Assign :
+    let src={
+        a:12,
+        b:5
+       };
+    let dest=Object.assign({},src);
+    console.log(dest);//a: 12, b: 5}
+
+(iii)Spread:
+    // let src={
+    //     a:11,
+    //     b:3
+    //    };
+    // let dest={...src};
+    // console.log(dest);//a: 11, b: 3}
+................................................................................................................
+
+**Garbage Collection:
+In C/C++ when we allocate memory dynamically then we neeed to deallocate after its usage [all is done manually as we dont have anything such as garbage collector]
+But in case of Javascript we have garbage collector which runs in  background and we dont have control over it . 
+Its main usage is it finds out variables/CONSTANTS which are not in use and deallocates it automatically
+
+
+
+

@@ -1,0 +1,41 @@
+These are the steps by which we can create a repo in github using command line (terminal):
+
+Initial commands after creating a repository in github:
+git init
+ls -a [lists all hidden .git file]
+git status [To keep track of all the files]
+git add .[To use all the files or replace . with the specific filename ]
+git commit -m "first commit" [To commit a message]
+git branch -M main [branch selection]
+git remote add origin https://github.com/ab5969/FullStack.git (add the link which was there on github after creating the website)
+after the above line files from local window will be pushed to github
+git push -u origin main
+
+Suppose I created another style1.css file or I made any changes to the existing file and I wish to push it or add the changes to github in my same rep that i created then these steps to follow:
+-git status [ it will list style1.css file as untracked]
+-git add style1.css or git add . 
+-git commit -m "pushing style1.css file"
+-git push
+
+//websites to deploy our project: netlify , vercel.com
+
+After modification :
+git status 
+git add . [or name of the specific file where modification was done]
+git commit -m "Modified CSS" [adding a message\\ m:stands for message]
+git pull origin main
+git push
+
+On gitbash:
+$ git config --global user.name "abhinavsiingh" //same as there on github
+$ git config --global user.email "as854@snu.edu.in" //same as there on github
+$ git config --global --edit [ Vim editor will open and to come out : press esc and write :wq]
+
+To clone a repository:
+in the repository which u want to clone click on the dropdown menu bar and copy the URL
+in gitbash choose a directory where u wish to clone cd Desktop/
+git clone URL(copied from the repo)
+cd reponame/
+code . [to open in vs code]
+
+

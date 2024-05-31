@@ -1,0 +1,65 @@
+1)Its a scripting language. 
+
+2)Installation using NodeJs
+We can add JS code in these many ways:
+ *) in the index.html file we can add the <script></script> and place our JS code in it . This script code can be placed in  body as well as head tag but the best practice is to place <script></script> in the bottom of the body tag
+ *) or we can create another file lets say index.js and link this to index.html file in this fashion:<body>
+    <script src="2_index.js">
+
+    </script>
+</body>
+
+3) JS engine (something which converts Js source code into machine readable form ie 01010..) used in firefox is spider monkey and in chrome it is V8
+
+VARIABLES:-
+1) Its dynamically typed ie we dont need to define the datatype of VARIABLES
+  we can create variables using let or var keyword:
+  USING LET: we can use let keyword to define any sort of variables eg : let num1=3, let bool1=true, let num2=10.5, 
+  let str='string1'....
+  USING VAR: var num1= 3, and similarly as let but the only difference is of the scope 
+  ** var can be declared globally whereas let scope only resides within { }
+2) Redeclaration of variable is not possible in the case of let but possible in the case of var 
+
+CONSTANTS:-
+Once assigned we cant reassign its value ie const num=12; and then num=13 would be invalid 
+
+**Variable Naming: Same as any other language but here better to use camelcase ie firstLast abhinavSingh
+
+Data types: 
+Undefined : let a; 
+            console.log(a);//Undefined
+Null: 
+
+Reference Types:
+1) Objects: Object creation: 
+            let person={
+                firstName='Abhinav',
+                age=20
+                };
+            Object Access:
+            person.age or person['age']
+
+2) Arrays: let array1=['abhi','nav','singh'];.....array1[0]//prints abhi and similarly other functionality as any other language.
+ 
+Equality Operators:
+1) Loose equality : == [if the values will be equal then it will be true]eg let num1=2; 
+                                                                            let str='2'
+                                                                            num1==str//true
+
+2) Strict equality : === [ if and only if values + dataytype of the variable is equal then only it will be true] eg
+                                                                            let num1=2; 
+                                                                            let str='2'
+                                                                            num1==str//false as num!=str
+**Conditional or ternary Operators
+
+Boolean Operators with Non-Boolean:
+Falsey: something which is Undefined||null||0||false||Nan(Not a number) 
+truth: something which is not falsey 
+eg: console.log(false||true)//true
+  console.log(false||5||10);//5..it prints 5 as it is the first encountered truth value
+  console.log(false||2||12||34||34);//2
+
+
+
+
+

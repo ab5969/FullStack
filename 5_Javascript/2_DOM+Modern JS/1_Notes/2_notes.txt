@@ -1,0 +1,17 @@
+Methods to integrate JS with CSS code:
+(i).style: let content = $0;// stores the selected text in content
+           content.style.color='green';// changes the color of the selected text to green
+           content.style.backgroundColor='red';
+
+    Drawback : we will be able to make changes in the property one at a time
+
+(ii).cssText: let content = $0;// stores the selected text in content
+              content.style.cssText='color:green; background-color:red; font-size:4em;';// make changes in multiple properties in one go
+
+(iii).setAttribute: 
+              content.setAttribute('style', 'color:brown; background-color:yellow;'); // does the same thing as .cssText
+              content.setAttribute('id','dummyid');// changes the ID to dummyid
+
+(iv).className: 
+              content.className; // returns the classnames used in the current element;
+(v).classList: 
